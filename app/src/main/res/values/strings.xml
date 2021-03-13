@@ -9,5 +9,22 @@
       or implied. See the License for the specific language governing permissions and limitations under
       the License.
       -->
-    <string name="app_name">AndroidDevChallenge</string>
+    <string name="app_name">WeTrade</string>
+    <string name="get_started">Get started</string>
+    <string name="log_in">Log in</string>
+    <string name="welcome_back">Welcome\nback</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="account">Account</string>
+    <string name="watchlist">Watchlist</string>
+    <string name="profile">Profile</string>
+    <string name="balance">Balance</string>
+    <string name="changed_today">%1$s today</string>
+    <string name="transact">Transact</string>
+    <string name="week">Week</string>
+    <string name="etfs">ETFs</string>
+    <string name="stocks">Stocks</string>
+    <string name="funds">Funds</string>
+    <string name="extra">Extra</string>
+    <string name="positions">Positions</string>
 </resources>

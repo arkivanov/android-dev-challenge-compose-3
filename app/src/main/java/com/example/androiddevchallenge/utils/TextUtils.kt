@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.utils
 
-import androidx.compose.ui.graphics.Color
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.core.os.ConfigurationCompat
+import java.util.Locale
 
-val yellow = Color(0xFFE3DA00)
-val purple = Color(0xFF322049)
-val white = Color(0xFFFFFFFF)
-val green = Color(0xFF39A844)
-val red = Color(0xFFD93C19)
-val gray900 = Color(0xFF232323)
-val gray700 = Color(0xFF2D2D2D)
+@Composable
+fun String.toUpperCaseLocalized(): String =
+    toUpperCase(ConfigurationCompat.getLocales(LocalConfiguration.current).get(0) ?: Locale.getDefault())

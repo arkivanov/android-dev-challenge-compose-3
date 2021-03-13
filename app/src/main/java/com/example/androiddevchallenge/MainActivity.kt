@@ -15,32 +15,62 @@
  */
 package com.example.androiddevchallenge
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.arkivanov.decompose.extensions.compose.jetpack.rememberRootComponent
+import com.example.androiddevchallenge.component.root.Root
+import com.example.androiddevchallenge.component.root.RootComponent
+import com.example.androiddevchallenge.component.root.ui.RootComponentPreview
+import com.example.androiddevchallenge.component.root.ui.RootUi
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = Color.TRANSPARENT
+
         setContent {
-            MyTheme {
-                MyApp()
+            MyTheme(darkTheme = true) {
+                MyApp(
+                    rememberRootComponent { componentContext ->
+                        RootComponent(
+                            componentContext = componentContext,
+                            onSetSystemUiVisibilityFlag = ::onSetSystemUiVisibilityFlag
+                        )
+                    }
+                )
             }
+        }
+    }
+
+    private fun onSetSystemUiVisibilityFlag(mask: Int, value: Boolean) {
+        window.decorView.apply {
+            systemUiVisibility =
+                if (value) {
+                    systemUiVisibility or mask
+                } else {
+                    systemUiVisibility and mask.inv()
+                }
         }
     }
 }
 
 // Start building your app here!
 @Composable
-fun MyApp() {
+fun MyApp(root: Root) {
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        RootUi(root = root)
     }
 }
 
@@ -48,7 +78,7 @@ fun MyApp() {
 @Composable
 fun LightPreview() {
     MyTheme {
-        MyApp()
+        MyApp(RootComponentPreview)
     }
 }
 
@@ -56,6 +86,6 @@ fun LightPreview() {
 @Composable
 fun DarkPreview() {
     MyTheme(darkTheme = true) {
-        MyApp()
+        MyApp(RootComponentPreview)
     }
 }

@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge.component.root
 
-import androidx.compose.ui.graphics.Color
+import com.arkivanov.decompose.RouterState
+import com.arkivanov.decompose.value.Value
+import com.example.androiddevchallenge.utils.Content
 
-val yellow = Color(0xFFE3DA00)
-val purple = Color(0xFF322049)
-val white = Color(0xFFFFFFFF)
-val green = Color(0xFF39A844)
-val red = Color(0xFFD93C19)
-val gray900 = Color(0xFF232323)
-val gray700 = Color(0xFF2D2D2D)
+interface Root {
+
+    val routerState: Value<RouterState<*, Content>>
+}

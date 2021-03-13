@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -73,6 +74,8 @@ dependencies {
     implementation "androidx.compose.material:material-icons-extended:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+    implementation 'com.arkivanov.decompose:decompose:0.1.9'
+    implementation 'com.arkivanov.decompose:extensions-compose-jetpack:0.1.9'
 
     testImplementation 'junit:junit:4.13.2'
 
