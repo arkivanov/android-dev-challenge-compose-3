@@ -1,4 +1,4 @@
-# Put title of your app here
+# WeTrade
 
 ![Workflow result](https://github.com/arkivanov/android-dev-challenge-compose-3/workflows/Check/badge.svg)
 
