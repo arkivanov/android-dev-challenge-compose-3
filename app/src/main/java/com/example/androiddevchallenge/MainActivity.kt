@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         setContent {
-            MyTheme(darkTheme = true) {
+            MyTheme {
                 MyApp(
                     rememberRootComponent { componentContext ->
                         RootComponent(
